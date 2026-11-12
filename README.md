@@ -1,4 +1,4 @@
-# Majestic Organizer
+# Majestic EMS Organizer
 
 **Программа для Windows, которая распределяет скриншоты Majestic RP по папкам.**
 
