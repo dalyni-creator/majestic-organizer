@@ -23,10 +23,10 @@ jobs:
           architecture: x64
       - name: Download and verify source and original runtime
         run: |
-          gh release download v9.4.1 --repo "$env:GITHUB_REPOSITORY" --pattern MajesticOrganizer-9.4.1-source.zip
+          gh release download v9.4.1 --repo "$env:GITHUB_REPOSITORY" --pattern MajesticOrganizer-9.4.1-source-r2.zip
           if ($LASTEXITCODE) { throw "Source download failed" }
-          if ((Get-FileHash MajesticOrganizer-9.4.1-source.zip -Algorithm SHA256).Hash.ToLower() -ne "51201123f64114e4ce8f17e52f9789299b5d4fbe013b68c2fc9a849d9f95fc5b") { throw "Source checksum mismatch" }
-          Expand-Archive MajesticOrganizer-9.4.1-source.zip -DestinationPath payload
+          if ((Get-FileHash MajesticOrganizer-9.4.1-source-r2.zip -Algorithm SHA256).Hash.ToLower() -ne "b5736d930f3003a886ea6f4ff3b6631c518a474268226c43134dd7b8489a90ff") { throw "Source checksum mismatch" }
+          Expand-Archive MajesticOrganizer-9.4.1-source-r2.zip -DestinationPath payload
           gh release download v9.4.0 --repo "$env:GITHUB_REPOSITORY" --pattern MajesticOrganizer-Setup-9.4.0-x64.exe
           if ($LASTEXITCODE) { throw "Runtime download failed" }
           if ((Get-FileHash MajesticOrganizer-Setup-9.4.0-x64.exe -Algorithm SHA256).Hash.ToLower() -ne "a2f263289ea07dc216549b9ab8b3fc1c50a88d4bf4c27aeaa86faa504b28a733") { throw "Runtime checksum mismatch" }
